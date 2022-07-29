@@ -10,9 +10,9 @@
       apt:
         name: docker
         state: present
-    - name: Install docker-py
+    - name: Install docker
       pip:
-        name: docker-py
+        name: docker
         state: present
         enabled: yes
     - name: Start Docker
