@@ -2,19 +2,23 @@
 - hosts: dev
   become: true
   tasks:
+    - name: Install Python
+      apt:
+        name: python3
+        state: present
     - name: Install Python pip
       apt:
-        name: python3-pip
+        name: python-pip
         state: present
     - name: Install Docker
       apt:
         name: docker
         state: present
-    # - name: Install docker
-    #   pip:
-    #     name: docker
-    #     state: present
-    #     enabled: yes
+    - name: Install docker
+      pip:
+        name: docker
+        state: present
+        enabled: yes
     - name: Start Docker
       service:
         name: docker
