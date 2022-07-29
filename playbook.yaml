@@ -6,13 +6,18 @@
       apt:
         name: python3
         state: present
+    - name: Install aptitude using apt
+      apt: name=aptitude state=latest update_cache=yes force_apt_get=yes
+    - name: Install required system packages
+      apt: name={{ item }} state=latest update_cache=yes
+      loop: [ 'apt-transport-https', 'ca-certificates', 'curl', 'software-properties-common', 'python3-pip', 'virtualenv', 'python3-setuptools']
     - name: Install Python pip
       apt:
         name: python-pip
         state: present
     - name: Install Docker
       apt:
-        name: docker
+        name: docker-ce
         state: present
     - name: Install docker
       pip:
