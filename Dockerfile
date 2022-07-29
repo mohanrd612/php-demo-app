@@ -3,10 +3,10 @@ FROM ubuntu
 USER root
 RUN apt-get update
 RUN apt-get install -y
-RUN DEBIAN_FRONTEND=noninteractive apt-get install apache2 php php-mysql
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y apache2 php php-mysql
 RUN dpkg --configure -a
 WORKDIR /var/www/html
-COPY srf/ ./
+COPY srf/ ./ 
 EXPOSE 80
 
 # MySQL
