@@ -22,7 +22,7 @@
     - name: Start Docker Container
       docker_container:
         name: php-demo-app
-        image: php-demo-app
+        image: "mohanraj612/php-app:php-demo-app"
         state: started
         published_ports:
           - 0.0.0.0:8888:80
